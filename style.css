@@ -60,18 +60,42 @@ main{
   padding-top: 60px; /* adapte si ta navbar est plus grande */
 }
 
+.section-titre{
+    font-size: 35px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #e5f9ff;
+    margin-left: 10px;
+    margin-bottom: 15px;
+    position: relative;
+}
+.section-titre::after{
+    content: "";
+    width: 80px;
+    height: 3px;
+    background: #38bdf8;
+    display: block;
+    margin-left: 33px;
+    margin-top: 5px;
+    border-radius: 2px;
+}
+
 /* About */
 .about-container{
     display: grid;
     grid-template-areas: 
-    "photo"
+    "pic-cv"
     "nom"
     "stage"
     "intro"
     "longue";
 }
-.photo{
-    grid-area: photo;
+.photo-cv{
+    grid-area: pic-cv;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
 }
 .titre-nom{
     grid-area: nom; 
@@ -86,13 +110,41 @@ main{
     grid-area: longue;
 }
 
+.photo{
+    grid-column: 2;
+
+}
+.photo img {
+    display: block;
+    margin: auto;
+    padding: 10px;
+    border-radius: 10%;
+    object-fit: cover;
+    height: 255px;
+}
+.cv{
+    grid-column: 3;
+    display: flex;
+    margin-top: 150px;
+    flex-direction: column;
+    align-items: center;
+}
+.cv i{
+    font-size: 30px;
+    color: #c7e9f3;
+}
+.cv a{
+    margin-top: 2px;
+}
 .titre-nom h1{
     margin-bottom: 5px;
+    letter-spacing: 3px;
 }
 .titre-stage h2{
     margin-top: 8px;
     margin-bottom: 10px;
-    font-size: 19px;
+    font-size: 20px;
+    letter-spacing: 2px;
 }
 .titre-nom:hover{
     color: #e8ffff;
@@ -107,29 +159,21 @@ main{
     0 0 40px #0EA5E9;
   transform: scale(1.05);
 }
-.photo img {
-    display: block;
-    margin: auto;
-    padding: 10px;
-    border-radius: 10%;
-    object-fit: cover;
-    height: 255px;
-}
 .importent-word-1{
     color: #dcdadaee;
     transition: color 0.3s ease;
 }
 .titre-stage:hover .importent-word-1{
-    color: rgb(178, 43, 43);
+    color: #c7e9f3;
     text-decoration: underline;
 }
 .introduction{
-    font-size: large;
-    max-width: 900px;
+    font-size: 19px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 .introduction:hover .importent-word-2{
-    color: rgb(178, 43, 43);
+    color: #c7e9f3;
 }
 .titre-nom,.titre-stage,.introduction{
     text-align: center;
@@ -138,7 +182,7 @@ main{
 .longue-container{
     padding: 10px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, 180px);
+    grid-template-columns: repeat(auto-fit, 150px);
     justify-content: center;
     align-items: center;
     gap: 20px;
@@ -192,6 +236,15 @@ main{
 }
 
 /*skills*/
+.skills-box h3{
+    font-size: 22px;
+    font-weight: 600;
+    color: #c7e9f3;
+    margin-left: 20px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 .skills-cards{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 190px));
@@ -231,39 +284,57 @@ main{
 .projects-container{
     padding: 10px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(180px, 390px));
+    justify-content: center;
     gap: 20px;
 }
-.projects-card h3{
+.project-card h3{
     text-align: center;
 }
-.projects-card{
+.project-card{
     display: flex;
     flex-direction: column;
-    background-color: rgb(220, 194, 206);
+    background-color: rgba(156, 191, 228, 0.139);
     border-radius: 10px;
     padding: 10px;
 }
-.projects-card a{
+.project-card p{
+    margin-bottom: 10px;
+}
+.project-card .outiles{
+    margin-bottom: 25px;
+}
+.project-card a{
     margin-top: auto;
-    align-self: flex-start;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    align-self: flex-end;
     border: solid;
     border-radius: 5px;
     padding: 3px 9px;
 }
+.project-card a:hover{
+    background: #38bdf8;
+    color: #000;
+    transition: 0.2s;
+}
 
 /*contacte*/
-#contact{
-    display: flex;
-    gap: 40px;               
+.contact-container{
+    color: #000;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
+    gap: 30px;
     justify-content: center;
-    padding: 30px;
+    padding: 40px;
 }
 .contact-info, .contact-form{
     background: #627c7c;
     padding: 20px;
     border-radius: 10px;
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
 }
 .contact-info-items{
     display: flex;
@@ -303,7 +374,7 @@ input, textarea {
 
 /*footer*/
 footer{
-    background-color: rgba(160, 166, 233, 0.642);
+    background-color: rgba(50, 150, 232, 0.642);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -318,4 +389,7 @@ footer{
     width: 20px;
     height: 20px;
     cursor: pointer;
+}
+footer p{
+    color: #ffffff;
 }
