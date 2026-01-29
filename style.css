@@ -329,6 +329,11 @@ main{
     justify-content: center;
     padding: 40px;
 }
+#contact{
+    scroll-margin-top: 70px;
+}
+
+
 .contact-info, .contact-form{
     background: #627c7c;
     padding: 20px;
@@ -336,24 +341,42 @@ main{
     width: 100%;
     max-width: 400px;
 }
-.contact-info-items{
+
+.contact-info{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 .contact-item{
-    display: grid;
-    grid-template-columns: 90px 1fr;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    justify-content: center;
+    text-align: center;
 }
+.contact-item i{
+    font-size: 35px;
+}
+.contact-item p, .contact-item a{
+    margin-bottom: 5px;
+}
+
 form div {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
 }
+.contact-form label{
+    margin-bottom: 5px;
+}
 input, textarea {
   padding: 8px;
   border-radius: 6px;
   border: 1px solid #ccc;
+}
+textarea{
+    height: 70px;
 }
 .contact-title{
     text-align: center;
@@ -374,11 +397,11 @@ input, textarea {
 
 /*footer*/
 footer{
-    background-color: rgba(50, 150, 232, 0.642);
+    background-color: rgba(68, 135, 189, 0.167);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 5px 20px 5px 20px;
 }
 .footer-links{
     display: flex;

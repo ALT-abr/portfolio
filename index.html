@@ -272,53 +272,55 @@
 
         <section class="contact-container">
             <div class="contact-info">
-                <h2 class="contact-title">Informations</h2>
-                <div class="contact-info-items">
-                    <div class="contact-item">
-                        <p class="contact-label">Téléphone</p>
-                        <a class="contact-value" href="tel:+33759283373">+33 7 59 28 33 73</a>
-                    </div>
-                    <div class="contact-item">
-                        <p class="contact-label">E-mail</p>
-                        <a class="contact-value" href="mailto:ab.aliouat@gmail.com">ab.aliouat@gmail.com</a>
-                    </div>
-                    <div class="contact-item">
-                        <p class="contact-label">LinkedIn</p>
-                        <a class="contact-value" href="https://www.linkedin.com/in/abderahmane-aliouat-4a3940386/"  target="_blank">aliouat abderahmane</a>
-                    </div>
-                    <div class="contact-item">
-                        <p class="contact-label">GitHub</p>
-                        <a class="contact-value" href="https://github.com/ALT-abr"  target="_blank">alt_abr</a>
-                    </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <p class="contact-label">Phone</p>
+                    <a class="contact-value" href="tel:+33759283373">+33 7 59 28 33 73</a>
                 </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <p class="contact-label">E-mail</p>
+                    <a class="contact-value" href="mailto:ab.aliouat@gmail.com">ab.aliouat@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                    <p class="contact-label">LinkedIn</p>
+                    <a class="contact-value" href="https://www.linkedin.com/in/abderahmane-aliouat-4a3940386/"  target="_blank">aliouat abderahmane</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-brands fa-square-github"></i>
+                    <p class="contact-label">GitHub</p>
+                    <a class="contact-value" href="https://github.com/ALT-abr"  target="_blank">alt_abr</a>
+                </div>
+            </div>
             </div>
             <div id="contact" class="contact-form">
                 <h2 class="contact-title">Contact</h2>
-                <form action="">
+                <form action="https://formspree.io/f/xrekkwjq" method="POST">
                     <div class="nom">
                         <label for="name">Nom</label>
-                        <input type="text" name="" id="name">
+                        <input type="text" name="name" id="name" required>
                     </div>
                     <div class="mail">
                         <label for="mail">E-mail</label>
-                        <input type="email" name="" id="mail">
+                        <input type="email" name="email" id="mail" required>
                     </div>
                     <div class="phone">
                         <label for="tel">Téléphone</label>
-                        <input type="tel" name="" id="tel">
+                        <input type="tel" name="phone" id="tel">
                     </div>
                     <div class="document">
                         <label for="file">Joindre un fichier</label>
-                        <input type="file" name="" id="file">
+                        <input type="file" name="file" id="file">
                     </div>
                     <div class="coment">
                         <label for="coment">commentaire</label>
-                        <br>
-                        <textarea name="" id="coment">Écrivez votre commentaire ici</textarea>
+                        <textarea name="coment" id="coment" required placeholder="Merci pour votre message"></textarea>
                     </div>
                     <div class="submit">
                         <input type="submit" value="Envoyer">
                     </div>
+                    <input type="hidden" name="_subject" value="Nouveau message depuis le portfolio">
                 </form>
             </div>
         </section>
