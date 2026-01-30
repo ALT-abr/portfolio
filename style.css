@@ -6,12 +6,25 @@
 body{
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    background: #111924;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(
+    135deg,
+    #111924,
+    #1d1055,
+    #3a2f7a,
+    #1f6fa3
+    );
     color: #858585;
 }
 
 section{
-  scroll-margin-top: 60px;
+  scroll-margin-top: 70px;
+}
+a{
+    color: rgb(254, 249, 249);
+    text-decoration: none;
+    font-weight: 500;
 }
 
 /*header*/
@@ -48,16 +61,15 @@ section{
     padding: 0;
     color: rgb(187, 187, 187);
 }
-
-a{
-    color: rgb(254, 249, 249);
-    text-decoration: none;
-    font-weight: 500;
+.nav-links a:hover{
+    text-decoration: underline;
+    font-weight: lighter;
 }
+
 
 /*main*/
 main{
-  padding-top: 60px; /* adapte si ta navbar est plus grande */
+  padding-top: 80px; 
 }
 
 .section-titre{
@@ -112,7 +124,6 @@ main{
 
 .photo{
     grid-column: 2;
-
 }
 .photo img {
     display: block;
@@ -121,6 +132,16 @@ main{
     border-radius: 10%;
     object-fit: cover;
     height: 255px;
+    box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.35),
+    0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.photo img:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.45),
+    0 6px 15px rgba(0, 0, 0, 0.25);
 }
 .cv{
     grid-column: 3;
@@ -139,6 +160,7 @@ main{
 .titre-nom h1{
     margin-bottom: 5px;
     letter-spacing: 3px;
+    color: #e4e4e4;
 }
 .titre-stage h2{
     margin-top: 8px;
@@ -148,7 +170,6 @@ main{
 }
 .titre-nom:hover{
     color: #e8ffff;
-    transition: 0.2s;
     text-shadow: 0 4px 12px rgba(56, 189, 248, 0.8);
     transition: all 0.3s ease-in-out;
 }
@@ -160,11 +181,11 @@ main{
   transform: scale(1.05);
 }
 .importent-word-1{
-    color: #dcdadaee;
+    color: #c3c6ccee;
     transition: color 0.3s ease;
 }
 .titre-stage:hover .importent-word-1{
-    color: #c7e9f3;
+    color: #c7dbe0;
     text-decoration: underline;
 }
 .introduction{
@@ -173,7 +194,7 @@ main{
     margin: 0 auto;
 }
 .introduction:hover .importent-word-2{
-    color: #c7e9f3;
+    color: #c7dbe0;
 }
 .titre-nom,.titre-stage,.introduction{
     text-align: center;
@@ -309,20 +330,20 @@ main{
     margin-right: 5px;
     margin-bottom: 5px;
     align-self: flex-end;
-    border: solid;
     border-radius: 5px;
-    padding: 3px 9px;
+    padding: 4px 9px;
+    color: #072a9f;
+    background: #d6dbff;
 }
 .project-card a:hover{
-    background: #38bdf8;
-    color: #000;
-    transition: 0.2s;
+    background: #072a9f;
+    color: #d6dbff;
+    transition: 0.3s ease-in-out;
 }
 
 /*contacte*/
 .contact-container{
     color: #000;
-    margin-top: 20px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
     gap: 30px;
@@ -333,9 +354,14 @@ main{
     scroll-margin-top: 70px;
 }
 
-
 .contact-info, .contact-form{
-    background: #627c7c;
+    background: linear-gradient(
+    135deg,
+    #627c7c,
+    #749bbe,
+    #728698,
+    #445764
+    );
     padding: 20px;
     border-radius: 10px;
     width: 100%;
@@ -393,6 +419,19 @@ textarea{
     cursor: pointer;
     font-weight: 500;
     text-align: center;
+}
+.contact-form .submit input{
+    font-weight: 600;
+    font-size: 15px;
+}
+.contact-form .submit input:hover{
+    color: #ccdbe4;
+    background: linear-gradient(
+    135deg,
+    #445764,
+    #6a9ab1
+    );
+    transition: 1s ease-in-out;
 }
 
 /*footer*/
