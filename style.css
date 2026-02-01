@@ -269,10 +269,13 @@ main{
 .skill-card{
     height: 230px;  /*210*/
     border-radius: 10px;
-    background-color: #ccc;
+    background-color: #f0f1f1;
     color: rgb(0, 0, 0);
     text-align: center;
     padding: 10px;
+}
+.skill-card:hover{
+    background-color: #f8f8f8;
 }
 .skill-card i{
     font-size: 50px;
