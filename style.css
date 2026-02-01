@@ -290,7 +290,7 @@ main{
     padding: 10px;
 }
 .skill-card:hover i{
-    color: rgb(8, 4, 134);
+    color: rgb(13, 8, 168);
     transition: 0.3s;
 }
 .skill-card:hover h4{
