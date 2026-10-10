@@ -8,12 +8,25 @@ type SkillcardProps = {
 
 export default function SkillCard({titre, tech, icon: Icon}: SkillcardProps) {
     return(
-        <section>
-            <div className="icon_cercle">
+        <section 
+            className="
+              border rounded-[15px] 
+              p-2.5 
+              bg-white
+              flex flex-col items-center">
+            <div 
+                className="
+                  p-2.5
+                  bg-blue-300
+                  rounded-[100%]">
                 <Icon />
             </div>
-            <h2>{titre}</h2>
-            <p>{tech}</p>
+            <h2 className="font-semibold text-[18px]">
+                {titre}
+            </h2>
+            <p className="text-base text-center">
+                {tech}
+            </p>
         </section>
     )
 }
