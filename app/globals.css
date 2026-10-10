@@ -25,6 +25,13 @@ body{
   color: var(--foreground);
 }
 
+main{
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding-inline: 2rem;
+}
+
 .section-title{
   @apply text-2xl font-semibold text-center
 }
