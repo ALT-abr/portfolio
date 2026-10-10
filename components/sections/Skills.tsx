@@ -4,7 +4,7 @@ import { CodeXml, Smartphone, Database, Palette} from "lucide-react"
 export default function Skills() {
     return(
         <section className="flex flex-col items-center gap-5">
-            <h2 className="text-2xl font-semibold">
+            <h2 className="section-title">
                 Mes competences
             </h2>
             <section className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-5">

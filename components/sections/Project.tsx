@@ -3,7 +3,7 @@ import ProjectCard from "../cards/ProjectCard"
 export default function Project() {
     return(
         <section className="mes_projet">
-            <h2>
+            <h2 className="section-title">
                 Mes projets
             </h2>
             <section className="projet_container">
