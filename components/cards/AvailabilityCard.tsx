@@ -1,10 +1,8 @@
-import { CodeXml } from "lucide-react"
+import { BriefcaseBusiness } from "lucide-react"
 
 export default function AvailabilityCard() {
     return(
-        <section className="availabilitycard">
-            <div className="bull"></div>
-            
+        <section className="w-fit border rounded-2xl p-5 bg-white">            
             <div className="function_intershipe">
                 <pre>
                     {`function lookingForInternship(competence) {
@@ -15,11 +13,11 @@ export default function AvailabilityCard() {
     };
 }`}
                 </pre>
-
             </div>
-             <div className="code_icon">
-                <CodeXml />
-             </div>
+
+            <div className="w-fit border rounded-[8px] p-2 ">
+                <BriefcaseBusiness size={30} />   
+            </div>
         </section>
     )
 }
