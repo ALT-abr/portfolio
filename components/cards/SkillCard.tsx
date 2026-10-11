@@ -4,27 +4,34 @@ type SkillcardProps = {
     titre: string;
     tech: string;
     icon: LucideIcon;
+    icon_color: string;
 }
 
-export default function SkillCard({titre, tech, icon: Icon}: SkillcardProps) {
+export default function SkillCard({titre, tech, icon: Icon, icon_color}: SkillcardProps) {
     return(
         <section 
             className="
-              border rounded-[15px] 
-              p-2.5 
-              bg-white
-              flex flex-col items-center">
+              flex h-full flex-col items-center
+              gap-3
+              border border-slate-200/60
+              rounded-[18px] 
+              px-3 py-5
+              text-center
+              shadow-[0_6px_24px_rgba(30,60,100,0.06)]
+              bg-white/90">
             <div 
-                className="
+                className={`
                   p-2.5
-                  bg-blue-300
-                  rounded-[100%]">
+                  ${icon_color}
+                  rounded-full
+                  flex items-center justify-center
+                  h-12 w-12`}>
                 <Icon />
             </div>
-            <h2 className="font-semibold text-[18px]">
+            <h3 className="font-semibold text-[18px] text-foreground">
                 {titre}
-            </h2>
-            <p className="text-base text-center">
+            </h3>
+            <p className="text-base text-center leading-6 text-secondary">
                 {tech}
             </p>
         </section>
