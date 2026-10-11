@@ -11,22 +11,32 @@ export default function({titre, description, img, img_description}: ProjetProps)
     return(
         <section 
             className="
-              border rounded-2xl
-              bg-white
-              p-4
-              flex flex-col gap-2">
-            <Image 
+              flex h-full flex-col 
+              gap-3
+              p-3
+              border border-slate-200/60
+              rounded-[18px]
+              bg-white/90
+              shadow-[0_6px_24px_rgba(30,60,100,0.06)]
+              transition-all duration-300
+              hover:-translate-y-1
+              hover:shadow-[0_12px_32px_rgba(30,60,100,0.10)]
+
+              ">
+            <div className="relative aspect-[4/2] w-full overflow-hidden rounded-xl">
+                <Image 
                 src={img}
                 alt={img_description}
-                width={300}
-                height={150}
-                className="h-auto w-full object-cover border rounded-xl border-gray-300"
+                fill
+                sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw"
+                className="object-cover"
             />
+            </div>
             <section>
-                <h2 className="font-semibold text-[18px]">
+                <h3 className="font-semibold text-[18px] text-foreground">
                     {titre}
-                </h2>
-                <p className="font-medium text-base text-gray-600">
+                </h3>
+                <p className="font-medium text-[14px] leading-6 text-secondary">
                     {description}
                 </p>
             </section>

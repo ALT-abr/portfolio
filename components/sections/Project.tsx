@@ -6,18 +6,36 @@ export default function Project() {
             <h2 className="section-title">
                 Mes projets
             </h2>
-            <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 <ProjectCard 
                     titre="Historiya"
-                    description="un site de lecteur des histoire"
-                    img="/placeholder.png"
-                    img_description="image de la page daceuil hisotriya"
+                    description="Plateforme de lecture d’histoires avec favoris, listes de lecture et suivi de progression."
+                    img="/projets/historiya.png"
+                    img_description="#"
                 />
                 <ProjectCard 
-                    titre="Tifinagh"
-                    description="transforme un text latin en text avec aphabet tifinagh"
-                    img="/placeholder.png"
-                    img_description="le photo du site"
+                    titre="Annuaire"
+                    description="Application de gestion d’un annuaire permettant d’organiser et de retrouver facilement des informations."
+                    img="/projets/annuaire.png"
+                    img_description="#"
+                />
+                <ProjectCard 
+                    titre="TimuchFarm"
+                    description="Application de gestion d’élevage permettant de suivre les animaux, leur alimentation et la production laitière."
+                    img="/projets/timuchfarm.png"
+                    img_description="#"
+                />
+                <ProjectCard 
+                    titre="Clavier d’Or"
+                    description="Jeu éducatif interactif de quiz informatiques, avec plusieurs catégories, progression par niveaux et suivi des scores."
+                    img="/projets/clavier_dor.png"
+                    img_description="#"
+                />
+                <ProjectCard 
+                    titre="Tifinagh Converter"
+                    description="Application web de conversion de texte latin en alphabet tifinagh, dédiée à l’écriture amazighe."
+                    img="/projets/tifinagh_converter.png"
+                    img_description="#"
                 />
             </section>
         </section>
