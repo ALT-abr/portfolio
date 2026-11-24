@@ -20,7 +20,6 @@
   $$('a[href^="#"]').forEach(function(a){
     a.addEventListener('click', function(e){
       e.preventDefault(); go(a.getAttribute('href').slice(1));
-      if(a.hasAttribute('data-open-contact')) setContact(true);
     });
   });
 
@@ -114,13 +113,42 @@
   if(document.fonts && document.fonts.ready) document.fonts.ready.then(place);
   place(); syncAuto();
 
-  /* contact */
-  var panel = $('#cta-panel'), btn = $('#cta-btn');
-  function setContact(open){
-    panel.classList.toggle('open', open); panel.inert = !open; btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-  }
-  btn.addEventListener('click', function(){ setContact(!panel.classList.contains('open')); });
+  /* parcours : fixed winding path, steps pop in one after the other */
+  (function(){
+    var box = $('#journey'); if(!box) return;
+    var fill = $('.j-fill', box), svg = $('.j-svg', box), grad = $('#jg');
+    var items = $$('.j-item', box), nodes = items.map(function(it){ return $('.j-node', it); });
+    var mq = window.matchMedia('(max-width:900px)');
+    function curve(a, b, i, vertical){
+      if(!vertical){ var mx = (a.x + b.x) / 2; return ' C' + mx + ' ' + a.y + ' ' + mx + ' ' + b.y + ' ' + b.x + ' ' + b.y; }
+      var s = (i % 2 ? 1 : -1) * 34, dy = b.y - a.y;
+      return ' C' + (a.x + s) + ' ' + (a.y + dy * .3) + ' ' + (b.x + s) + ' ' + (b.y - dy * .3) + ' ' + b.x + ' ' + b.y;
+    }
+    function build(){
+      var br = box.getBoundingClientRect(), vertical = mq.matches;
+      svg.setAttribute('viewBox', '0 0 ' + box.offsetWidth + ' ' + box.offsetHeight);
+      var pts = nodes.map(function(n){ var r = n.getBoundingClientRect(); return {x: r.left - br.left + r.width / 2, y: r.top - br.top + r.height / 2}; });
+      var d = 'M' + pts[0].x + ' ' + pts[0].y;
+      for(var i = 1; i < pts.length; i++) d += curve(pts[i - 1], pts[i], i, vertical);
+      fill.setAttribute('d', d);
+      grad.setAttribute('x1', vertical ? 0 : pts[0].x); grad.setAttribute('x2', vertical ? 0 : pts[pts.length - 1].x);
+      grad.setAttribute('y1', vertical ? pts[0].y : 0); grad.setAttribute('y2', vertical ? pts[pts.length - 1].y : 0);
+      box.classList.add('ready');
+    }
+    function reveal(){
+      items.forEach(function(it, i){ setTimeout(function(){ it.classList.add('reached'); }, reduce ? 0 : 250 + i * 420); });
+    }
+    build();
+    window.addEventListener('resize', build);
+    if(document.fonts && document.fonts.ready) document.fonts.ready.then(build);
+    if(reduce || !('IntersectionObserver' in window)){ reveal(); return; }
+    var seenIO = new IntersectionObserver(function(es){
+      if(es[0].isIntersecting){ seenIO.disconnect(); reveal(); }
+    },{threshold:.3});
+    seenIO.observe(box);
+  })();
 
+  /* contact */
   var copyBtn = $('#copy-btn'), label = $('#copy-label'), cic = $('#copy-ic use'), mail = $('#mail-text');
   function done(ok){
     label.textContent = ok ? 'Adresse copiée' : 'Sélectionnée : copiez-la';
